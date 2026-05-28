@@ -26,7 +26,7 @@ function App() {
 
   // Fetch Metadata on Mount
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/metadata')
+    fetch('https://estatepredictai-1.onrender.com')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load server metadata.');
         return res.json();
@@ -72,7 +72,7 @@ function App() {
     };
 
     const timer = setTimeout(() => {
-      fetch('http://127.0.0.1:5000/predict', {
+      fetch('https://estatepredictai-4.onrender.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ function App() {
         <div className="error-card">
           <div className="error-icon">⚠️</div>
           <h2>Connection Error</h2>
-          <p>Unable to connect to the Flask server at <code>http://127.0.0.1:5000</code>.</p>
+          <p>Unable to connect to the Flask server at <code>https://estatepredictai-4.onrender.com</code>.</p>
           <p className="error-details">Details: {metaError}</p>
           <button className="retry-btn" onClick={() => window.location.reload()}>
             Retry Connection
