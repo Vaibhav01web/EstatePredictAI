@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #09090b 100%);
+  --bg-color: #0c0a0f;
+  --panel-bg: rgba(20, 18, 30, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --accent-purple: #a855f7;
+  --accent-indigo: #6366f1;
+  --accent-teal: #14b8a6;
+  --glow-color: rgba(168, 85, 247, 0.15);
+  
+  --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --heading: 'Outfit', system-ui, -apple-system, sans-serif;
+  
+  font-family: var(--sans);
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Custom Scrollbar for premium look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.3);
+}
