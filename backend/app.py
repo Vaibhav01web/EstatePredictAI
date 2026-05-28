@@ -2,16 +2,29 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
 import joblib
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-model = joblib.load("saved_model.pkl")
-encoders = joblib.load("encoders.pkl")
+# Helper to find files in backend/ or root/ directories dynamically
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+def get_path(filename):
+    local_path = os.path.join(BASE_DIR, filename)
+    if os.path.exists(local_path):
+        return local_path
+    parent_path = os.path.join(BASE_DIR, "..", filename)
+    if os.path.exists(parent_path):
+        return parent_path
+    return local_path  # fallback
+
+model = joblib.load(get_path("saved_model.pkl"))
+encoders = joblib.load(get_path("encoders.pkl"))
 
 # Load and compute statistics on startup for frontend dashboards
 try:
-    df = pd.read_csv("price_dataset.csv", keep_default_na=False)
+    df = pd.read_csv(get_path("price_dataset.csv"), keep_default_na=False)
     df["type"] = df["type"].astype(str).str.strip()
     
     localities = sorted(list(encoders["locality"].classes_))
@@ -81,4 +94,4 @@ def predict():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True)
