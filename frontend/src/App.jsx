@@ -72,7 +72,7 @@ function App() {
     };
 
     const timer = setTimeout(() => {
-      fetch('https://estatepredictai-4.onrender.com/predict', {
+      fetch('http://127.0.0.1:5000/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ function App() {
         <div className="error-card">
           <div className="error-icon">⚠️</div>
           <h2>Connection Error</h2>
-          <p>Unable to connect to the Flask server at <code>https://estatepredictai-4.onrender.com</code>.</p>
+          <p>Unable to connect to the Flask server at <code>http://127.0.0.1:5000</code>.</p>
           <p className="error-details">Details: {metaError}</p>
           <button className="retry-btn" onClick={() => window.location.reload()}>
             Retry Connection
