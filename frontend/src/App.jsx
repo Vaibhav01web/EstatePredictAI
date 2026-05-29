@@ -26,7 +26,7 @@ function App() {
 
   // Fetch Metadata on Mount
   useEffect(() => {
-    fetch('https://estatepredictai-1.onrender.com')
+    fetch('https://estatepredict-ruoi.onrender.com')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to load server metadata.');
         return res.json();
@@ -72,7 +72,7 @@ function App() {
     };
 
     const timer = setTimeout(() => {
-      fetch('http://127.0.0.1:5000/predict', {
+      fetch('https://estatepredict-ruoi.onrender.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
