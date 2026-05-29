@@ -132,7 +132,7 @@ function App() {
         <div className="error-card">
           <div className="error-icon">⚠️</div>
           <h2>Connection Error</h2>
-          <p>Unable to connect to the Flask server at <code>http://127.0.0.1:5000</code>.</p>
+          <p>Unable to connect to the Flask server at <code>https://estatepredict-ruoi.onrender.com</code>.</p>
           <p className="error-details">Details: {metaError}</p>
           <button className="retry-btn" onClick={() => window.location.reload()}>
             Retry Connection
