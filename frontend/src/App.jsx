@@ -25,27 +25,30 @@ function App() {
   const [predictError, setPredictError] = useState(null);
 
   // Fetch Metadata on Mount
-  useEffect(() => {
-    fetch('https://estatepredict-ruoi.onrender.com')
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load server metadata.');
-        return res.json();
-      })
-      .then((data) => {
-        setMetadata(data);
-        setLoadingMeta(false);
-        // Default locality
-        if (data.localities && data.localities.length > 0) {
-          setLocality(data.localities[0]);
-          setSearchQuery(data.localities[0]);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        setMetaError(err.message);
-        setLoadingMeta(false);
-      });
-  }, []);
+ // Fetch Metadata on Mount
+useEffect(() => {
+  fetch('https://estatepredict-ruoi.onrender.com/metadata')
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error('Failed to load server metadata.');
+      }
+      return res.json();
+    })
+    .then((data) => {
+      setMetadata(data);
+      setLoadingMeta(false);
+
+      if (data.localities && data.localities.length > 0) {
+        setLocality(data.localities[0]);
+        setSearchQuery(data.localities[0]);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      setMetaError(err.message);
+      setLoadingMeta(false);
+    });
+}, []);
 
   // Sync property type based on condition (Rent -> None, Buy -> New/PreOwned)
   useEffect(() => {
