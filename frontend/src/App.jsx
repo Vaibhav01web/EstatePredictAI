@@ -445,7 +445,7 @@ useEffect(() => {
 
       {/* Footer */}
       <footer className="app-footer-bar">
-        <p>© 2026 EstatePredict AI. Pair Programmed with Antigravity.</p>
+        <p>©Programmed by Vaibhav.</p>
       </footer>
     </div>
   );
