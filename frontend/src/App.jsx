@@ -121,7 +121,7 @@ function App() {
     return (
       <div className="center-screen">
         <div className="loader"></div>
-        <p className="loading-text">Connecting to ML Server...</p>
+        <p className="loading-text">Kakku momo khane wali hai...</p>
       </div>
     );
   }
